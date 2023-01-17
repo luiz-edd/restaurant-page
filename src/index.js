@@ -1,7 +1,6 @@
 import mainStructure from "./mainStructure.js";
 import homePage from "./home.js";
+import menuPage from "./menu.js";
 
-mainStructure().addToDoom();
-
-// mainStructure().resetContainer();
-// homePage();
+mainStructure().addStructureToDoom();
+menuPage();
