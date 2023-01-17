@@ -66,7 +66,7 @@ img {
 .item-box {
   display: grid;
   grid-template-columns: 200px auto 65px;
-  grid-template-rows: auto auto;
+  grid-template-rows: 30px auto;
   column-gap: 20px;
   outline: 1px 0 1px;
 }
@@ -77,11 +77,13 @@ img {
 }
 .item-title {
   display: flex;
-  align-self: center;
+  align-self: flex-start;
   grid-column: 2 / 4;
   grid-row: 1 / 2;
 }
 .item-description {
+  display: flex;
+  align-self: flex-start;
   grid-column: 2 / 4;
   grid-row: 2 / -1;
 }

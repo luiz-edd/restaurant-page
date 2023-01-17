@@ -5,7 +5,7 @@ import addMenuPage from "./menu.js";
 export default function mainStructure() {
   const content = document.querySelector("#content");
 
-  const structureElements = (() => {
+  const structureElements = () => {
     const header = document.createElement("div");
     const nav = document.createElement("nav");
     const ul = document.createElement("ul");
@@ -34,40 +34,34 @@ export default function mainStructure() {
     footer.append(address, about, socialMedia);
 
     //add content to the page home/location/menu when click on header
-    home.addEventListener("click", () => {
-      if (
-        !(
-          container.firstChild !== null &&
-          container.firstChild.className ===
-            home.textContent.toLocaleLowerCase()
-        )
-      ) {
-        mainStructure().resetContainer();
-        addHomePage();
-        console.log("generated");
-      }
-    });
-    contact.addEventListener("click", () => {
-      mainStructure().resetContainer();
-    });
-    menu.addEventListener("click", () => {
-      mainStructure().resetContainer();
-      addMenuPage();
-    });
 
     return {
       mainStructure: [header, container, footer],
       header,
       container,
       footer,
+      structureElements: {
+        header,
+        nav,
+        ul,
+        home,
+        contact,
+        menu,
+        container,
+        footer,
+        address,
+        about,
+        socialMedia,
+      },
     };
-  })();
+  };
 
   const addStructureToDoom = () => {
-    structureElements.mainStructure.forEach((element) => {
+    const structure = structureElements();
+    structure.mainStructure.forEach((element) => {
       content.appendChild(element);
     });
-    console.log(structureElements.header);
+    return structure;
   };
 
   const resetContainer = () => {
