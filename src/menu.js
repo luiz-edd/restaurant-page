@@ -1,6 +1,8 @@
 import shawarmaImg from "../img/shawarma.jpg";
 import homus from "../img/homus.jpeg";
 import esfiha from "../img/esfiha.jpg";
+import kibe from "../img/kibe.jpeg";
+import tabule from "../img/tabule.jpg";
 
 export default function addMenuPage() {
   const container = document.querySelector(".container");
@@ -26,7 +28,19 @@ export default function addMenuPage() {
     "Delicios esfiha with diferent flavors, like steak, cheese, calabresa, white cheese  ",
     "R$9,90"
   );
-  content.append(shawarmaItem, homusItem, esfihaItem);
+  const kibeItem = createItemMenu(
+    kibe,
+    "Kibe",
+    "Beef Kibe is crispy on the outside, soft on the inside and seasoned just right. Served as a side dish or appetizer, great choice.",
+    "R$11,90"
+  );
+  const tabuleItem = createItemMenu(
+    tabule,
+    "Tabule",
+    "Tabbouleh is a traditional dish of Arab cuisine, full of freshness and a few secrets: the wheat should not be soaked for too long to avoid soaking, and the parsley should go into the recipe washed and thoroughly dried.",
+    "R$19,90"
+  );
+  content.append(shawarmaItem, homusItem, esfihaItem, kibeItem, tabuleItem);
   container.append(content);
 }
 

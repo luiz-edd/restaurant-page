@@ -1,6 +1,7 @@
 import "./style.css";
 import addHomePage from "./home.js";
 import addMenuPage from "./menu.js";
+import logo from "../img/logo.jpg";
 
 export default function mainStructure() {
   const content = document.querySelector("#content");
@@ -13,11 +14,12 @@ export default function mainStructure() {
     const contact = document.createElement("div");
     const menu = document.createElement("div");
     const container = document.createElement("div");
+    const logoImg = new Image();
 
     const footer = document.createElement("div");
-    const address = document.createElement("div");
-    const about = document.createElement("div");
-    const socialMedia = document.createElement("div");
+    const instagram = document.createElement("a");
+    const address = document.createElement("a");
+    const ifood = document.createElement("a");
 
     header.classList.add("header");
     container.classList.add("container");
@@ -26,12 +28,18 @@ export default function mainStructure() {
     home.textContent = "Home";
     contact.textContent = "Contact";
     menu.textContent = "Menu";
-    address.textContent = "Social Media";
-    about.textContent = "GitHub";
-    socialMedia.textContent = "Ifood";
+    instagram.textContent = "Instagram";
+    address.textContent = "Address";
+    ifood.textContent = "Ifood";
+    logoImg.src = logo;
+    instagram.href = "https://www.instagram.com/lebanonfoodaugusta/";
+    ifood.href =
+      "https://www.ifood.com.br/delivery/sao-paulo-sp/lebanon-food-kebab-esfihas-grill-consolacao/d8a81bc8-87d9-4fe0-bf62-455e884da7b2";
+    address.href = "https://goo.gl/maps/PQRAP8GMkhsWjA4C9";
 
-    header.append(home, menu, contact);
-    footer.append(address, about, socialMedia);
+    nav.append(home, menu, contact);
+    header.append(logoImg, nav);
+    footer.append(instagram, address, ifood);
 
     //add content to the page home/location/menu when click on header
 
@@ -49,9 +57,10 @@ export default function mainStructure() {
         menu,
         container,
         footer,
+        instagram,
         address,
-        about,
-        socialMedia,
+        ifood,
+        logoImg,
       },
     };
   };
